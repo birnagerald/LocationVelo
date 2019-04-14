@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/responsive.css">
+	<link rel="stylesheet" href="../css/MarkerCluster.css">
+	<link rel="stylesheet" href="../css/MarkerCluster.Default.css">
+	<link rel="icon" type="image/png" href="../images/favicon.png" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="">
+
+
+	<title>Location de Vélo</title>
+
+</head>
+
+<body>
+
+	<!-- En-tête -->
+
+	<header>
+
+		<!-- navigation + logo -->
+		<nav id="navbar">
+			<div>
+
+				<div id="inner-logo">
+
+					<h1 class="text-logo">Location Service</h1>
+				</div>
+
+				<div id="inner-menu">
+					<ul class="menu">
+						<li class="menu_item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+						<li class="menu_item"><a href="#map">Stations</a></li>
+						<li class="menu_item"><a href="#reservation">Réservations</a></li>
+					</ul>
+					<a id="menu_2"><i class="fas fa-list" id="scroll_button"></i></a>
+					<a id="menu_2"><i class="fa fa-close" id="scroll_button_2"></i></a>
+
+
+				</div>
+
+				<div id="menu_scroll">
+					<ul class="menu_scroll">
+						<li class="menu_item_scroll"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+						<li class="menu_item_scroll"><a href="#map">Stations</a></li>
+						<li class="menu_item_scroll"><a href="#reservation">Réservations</a></li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+	<section id="diapo">
+
+		<div class="container" id="main_container">
+
+			<div id="slider">
+
+			</div>
+		</div>
+
+		<div id="cmds">
+			<a id="cmd-left" class="left" href="#" title="reculer"><span class="chevron"></span></a>
+			<a id="cmd-right" class="right" href="#" title="avancer"><span class="chevron"></span></a>
+
+		</div>
+
+
+
+	</section>
+
+	<section id="map">
+
+		<header>
+
+			<div class="headContainer">
+
+				<i class="fa fa-search" aria-hidden="true"></i>
+				<h3>Choisissez votre station</h3>
+
+			</div>
+		</header>
+		<div class="container_info">
+			<div id="mapid"></div>
+			<aside id="station_info">
+				<div id="infos-station">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="2" class="header-station">
+									<p>Station sélectionnée</p>
+									<button id="close-reservation-panel" class="btn-close" aria-label="Close" fa-times=""><span aria-hidden="true">×</span></button>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="station-titre">Status</td>
+								<td id="station-status"></td>
+							</tr>
+							<tr>
+								<td class="station-titre">Nom</td>
+								<td id="station-nom"></td>
+							</tr>
+							<tr>
+								<td class="station-titre">Adresse</td>
+								<td id="station-adresse"></td>
+							</tr>
+							<tr>
+								<td class="station-titre">Capacité d'accueil</td>
+								<td id="station-capacite"></td>
+							</tr>
+							<tr>
+								<td class="station-titre">Vélo disponible</td>
+								<td id="station-dispo"><span class="status-warning"></span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div id="reserver">
+						<input type="submit" id="btn-reserv" class="btn" value="Réserver" style="display: inline-block;">
+					</div>
+
+					<div id="canvas">
+						<p id="msgAlerte"></p>
+						<p>Signez votre réservation ou effacez la signature en cours.</p>
+						<canvas id="sign" width="300"></canvas>
+					</div>
+
+					<div id="validation">
+
+						<div class="conteneur-btn">
+							<input type="reset" id="reset" class="btn" value="Effacer">
+							<input type="submit" id="valide" class="btn" value="Valider">
+						</div>
+					</div>
+
+				</div>
+			</aside>
+		</div>
+	</section>
+
+	<section id="reservation">
+		<header>
+
+			<div class="headContainer">
+
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<h3>Information sur la réservation</h3>
+
+			</div>
+		</header>
+		<div class="container_reservation">
+			<p id="reservation_status">Aucune réservation en cours</p>
+			<p id="compteur-reservation"></p>
+			<input type="reset" id="cancel" class="btn" value="Annuler" style="display: none;">
+		</div>
+
+	</section>
+
+	<script src="../js/vendor.js"></script>
+	<script src="../js/ajax.js"></script>
+	<script src="../js/map.js"></script>
+	<script src="../js/slider.js"></script>
+	<script src="../js/canvas.js"></script>
+	<script src="../js/reservation.js"></script>
+	<script src="../js/station.js"></script>
+	<script src="../js/appli.js"></script>
+
+</body>
+
+</html>

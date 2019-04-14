@@ -1,0 +1,81 @@
+
+
+@media screen and (min-width:1200px) {
+
+	#menu_scroll {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width:1400px) {
+
+	#cmds {
+		display: block;
+	}
+
+	.coverflow-container {
+		display: none !important;
+	}
+
+	.slide {
+		display: block !important;
+	}
+	
+	#mapid {
+		width: 95%;
+		margin: 15px auto;
+	}
+
+	#station_info {
+		margin: 10px 0px 15px 0px;
+		width: 100%;
+	}
+
+}
+
+@media screen and (min-width:1400px) {
+
+	#cmds {
+		display: none;
+	}
+
+	.coverflow-container {
+		display: block !important;
+	}
+
+	.slide {
+		display: none !important;
+	}
+
+}
+
+@media screen and (max-width:1200px) {
+
+	.menu {
+		display: none;
+	}
+
+	#menu_2 {
+		display: block;
+	}
+
+
+}
+
+@media screen and (max-width:383px) {
+	#diapo {
+		margin: 115px 0 0 0;
+	}
+	
+	.slide {
+		height: 380px;
+	}
+
+	.right,
+	.left {
+		width: 5em;
+
+	}
+		
+
+}
